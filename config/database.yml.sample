@@ -1,0 +1,20 @@
+<%
+root_password = IO.read("#{Rails.root}/../../shared/prod_db_creds") rescue ""
+%>
+development: &default
+  adapter: postgresql
+  database: copycopter_development
+  min_messages: WARNING
+  username: root
+  password:
+
+production: &default
+  adapter: postgresql
+  database: ut_copycopter
+  username: root
+  password: <%= root_password %>
+  min_messages: WARNING
+
+test: &test
+  <<: *default
+  database: copycopter_test

@@ -1,5 +1,6 @@
 source :rubygems
 
+gem 'capistrano'
 gem 'dynamic_form', '1.1.4'
 gem 'flutie', '1.3.3'
 gem 'bourbon', '2.1.0'
