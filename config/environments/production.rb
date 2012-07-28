@@ -21,4 +21,5 @@ Copycopter::Application.configure do
 
   # Add the print CSS into the manifest
   config.assets.precompile += ['wysiwyg.css']
+  config.assets.manifest = Rails.root.join("public/assets")
 end

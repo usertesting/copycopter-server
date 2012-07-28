@@ -7,4 +7,5 @@ Copycopter::Application.configure do
   config.whiny_nils = true
   config.assets.compress = false
   config.assets.debug = true
+  config.assets.manifest = Rails.root.join("public/assets")
 end

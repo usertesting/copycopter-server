@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+load 'deploy/assets'
 
 set :application, "copycopter-server"
 set :repository,  "git@github.com:usertesting/copycopter-server.git"
@@ -27,6 +28,10 @@ namespace :config do
       run "cd #{release_path}/config; ln -nfs #{shared_path}/#{file}"
     end
   end
+end
+
+after 'deploy:update_code' do
+  run "cd #{release_path}; RAILS_ENV=production bundle exec rake assets:precompile"
 end
 
 after 'deploy:update_code', 'config:setup'
